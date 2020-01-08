@@ -1,0 +1,14 @@
+---
+- name: SEL Ansible Playbook - Get Status
+  hosts: selserver, testsystem
+  tasks:
+  - name: check service status
+    command: systemctl status sel.service
+    register: result_selservice
+    ignore_errors: no
+
+  - name: show [check service status]
+    debug:
+     var: result_selservice
+     
+...
